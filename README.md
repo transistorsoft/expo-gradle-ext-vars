@@ -62,10 +62,10 @@ Add the following block to your *Expo* app's __`app.json`__.
   "expo": {
     "plugins": [
       [
-      	"expo-gradle-ext-vars", {
-      		"googlePlayServicesLocationVersion": "20.0.0",
-      		"appCompatVersion": "1.4.2"
-       	}
+        "expo-gradle-ext-vars", {
+          "googlePlayServicesLocationVersion": "20.0.0",
+          "appCompatVersion": "1.4.2"
+        }
       ]
     ]
  }
