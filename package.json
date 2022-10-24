@@ -1,0 +1,31 @@
+{
+  "name": "expo-gradle-ext-vars",
+  "version": "0.1.0",
+  "description": "Expo plugin to append custom vars to the root android/build.gradle",
+  "scripts": {
+    "build": "yarn run build:expo",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:expo": "rimraf build && tsc --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/transistorsoft/expo-gradle-ext-vars.git"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "ext vars"
+  ],
+  "author": "Chris Scott, Transistor Software <chris@transistorsoft.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/transistorsoft/transistorsoft/expo-gradle-ext-vars/issues"
+  },
+  "homepage": "https://github.com/transistorsoft/transistorsoft/expo-gradle-ext-vars",
+  "devDependencies": {
+    "react-native": "^0.52.0",
+    "rimraf": "^3.0.2",
+    "@expo/config-plugins": "^4.1.0",
+    "typescript": "^4.6.2"
+  }
+}
