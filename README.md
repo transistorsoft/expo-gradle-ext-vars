@@ -7,9 +7,9 @@ By [**Transistor Software**](http://transistorsoft.com), creators of [**React Na
 
 ------------------------------------------------------------------------------
 
-A simple *Expo Config Plugin* for appending Android `ext` vars to the `android/build.gradle`.
+A simple *Expo Config Plugin* for appending Android `ext` vars to the `android/build.gradle`.  `ext` vars are a common Android method for configuring [project-wide, global configuration properties](https://developer.android.com/studio/build/gradle-tips) which can be shared by other plugins in order to prevent dependency conflicts.
 
-*/android/build.gradle*
+*android/build.gradle*
 
 ```diff
 import org.apache.tools.ant.taskdefs.condition.Os
