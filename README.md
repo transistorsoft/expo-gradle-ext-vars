@@ -26,7 +26,6 @@ buildscript {
 +       // @generated begin expo-gradle-ext-vars - expo prebuild (DO NOT MODIFY) sync-8c85b9ad3863726565f7eff0645ac3f5c56ce733
 +       googlePlayServicesLocationVersion = "20.0.0"
 +       appCompatVersion = "1.4.2"
-+       removeBackgroundGeolocationDebugSoundsInRelease = false
 +       // @generated end expo-gradle-ext-vars
 
         buildToolsVersion = findProperty('android.buildToolsVersion') ?: '31.0.0'
