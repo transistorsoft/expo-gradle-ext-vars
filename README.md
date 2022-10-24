@@ -59,6 +59,7 @@ npx expo install expo-gradle-ext-vars
 
 Add the following block to your *Expo* app's __`app.json`__.
 
+:warning: The variables below are only an example.  You should only provide variables as prescribed by some other plugin you're installing.
 
 ```json
 {
