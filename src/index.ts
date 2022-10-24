@@ -2,9 +2,8 @@ import {
 	ConfigPlugin,
 	withPlugins,
 	withProjectBuildGradle,
-  	withAppBuildGradle,
-  	withDangerousMod,
-  	WarningAggregator
+	withDangerousMod,
+	WarningAggregator
 } from '@expo/config-plugins';
 
 import {
