@@ -1,9 +1,9 @@
 import {
-	ConfigPlugin,
-	withPlugins,
-	withProjectBuildGradle,
-	withDangerousMod,
-	WarningAggregator
+  ConfigPlugin,
+  withPlugins,
+  withProjectBuildGradle,
+  withDangerousMod,
+  WarningAggregator
 } from '@expo/config-plugins';
 
 import {
@@ -41,13 +41,13 @@ const applyExtVars = (buildGradle: string, props:Map<string, string|boolean>) =>
   const newSrc = [];
 
   console.log('[ ' +  MODULE_NAME + '] applying ext vars to android/build.gradle', props);
-	for (let [key, value] of props) {
-	  if (typeof(value) === 'boolean') {
-	    newSrc.push(`\t${key} = ${value}`)
-	  } else {
-	    newSrc.push(`\t${key} = "${value}"`)
-	  }
-	}
+  for (let [key, value] of props) {
+    if (typeof(value) === 'boolean') {
+      newSrc.push(`\t${key} = ${value}`)
+    } else {
+      newSrc.push(`\t${key} = "${value}"`)
+    }
+  }
 
   return mergeContents({
     tag: `${MODULE_NAME}`,
