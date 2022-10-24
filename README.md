@@ -73,3 +73,10 @@ Add the following block to your *Expo* app's __`app.json`__.
     ]
  }
 ```
+
+After adding the plugin, run:
+
+```bash
+npx expo prebuild
+```
+`
