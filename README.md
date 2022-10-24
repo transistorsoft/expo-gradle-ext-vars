@@ -52,7 +52,7 @@ buildscript {
 ## Installation
 
 ```bash
-$ npx expo install expo-gradle-ext-vars
+npx expo install expo-gradle-ext-vars
 ```
 
 ## Usage
