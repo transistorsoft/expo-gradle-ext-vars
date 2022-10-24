@@ -79,4 +79,4 @@ After adding the plugin, run:
 ```bash
 npx expo prebuild
 ```
-`
+
