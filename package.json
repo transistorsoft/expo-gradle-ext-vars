@@ -1,6 +1,6 @@
 {
   "name": "expo-gradle-ext-vars",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Expo plugin to append custom vars to the root android/build.gradle",
   "scripts": {
     "build": "yarn run build:expo",
