@@ -42,7 +42,7 @@ const applyExtVars = (buildGradle: string, props:Map<string, string|boolean>) =>
 
   console.log('[ ' +  MODULE_NAME + '] applying ext vars to android/build.gradle', props);
   for (let [key, value] of props) {
-    if (typeof(value) === 'boolean') {
+    if (typeof(value) === 'boolean' || typeof(value) === 'number') {
       newSrc.push(`\t${key} = ${value}`)
     } else {
       newSrc.push(`\t${key} = "${value}"`)
