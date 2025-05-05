@@ -13,6 +13,8 @@ import {
 
 const MODULE_NAME = "expo-gradle-ext-vars";
 
+const EXT_BLOCK_ANCHOR_RE = /ext\s?.*\{/
+
 const androidPlugin: ConfigPlugin<Map<string,string|boolean>> = (config, props) => {
   return withProjectBuildGradle(config, ({ modResults, ...subConfig }) => {
     if (modResults.language !== 'groovy') {
@@ -21,6 +23,23 @@ const androidPlugin: ConfigPlugin<Map<string,string|boolean>> = (config, props) 
         `Cannot automatically configure project build.gradle if it's not groovy`,
       );
       return { modResults, ...subConfig };
+    }
+
+    // Does this build.gradle contain the ext {} block?
+    if (!EXT_BLOCK_ANCHOR_RE.test(modResults.contents)) {
+      // NO:  insert the ext {} block using standard Javascript replace, right above buildscript {} block, like this:
+      //
+      // ext {  // <--- INSERT ext block here.
+      //
+      // }
+      //
+      // buildscript {
+      //   .
+      //   .
+      //   .
+      // }
+      //
+      modResults.contents = modResults.contents.replace(/(buildscript)/, "ext {\n}\n\n$1");
     }
 
     modResults.contents = applyExtVars(modResults.contents, props);
@@ -53,7 +72,7 @@ const applyExtVars = (buildGradle: string, props:Map<string, string|boolean>) =>
     tag: `${MODULE_NAME}`,
     src: buildGradle,
     newSrc: newSrc.join("\n"),
-    anchor: /ext(?:\s+)?\{/,
+    anchor: EXT_BLOCK_ANCHOR_RE,
     offset: 1,
     comment: "//",
   }).contents;
