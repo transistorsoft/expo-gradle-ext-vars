@@ -38,22 +38,26 @@ const withExpoGradleExtVars: ConfigPlugin<{} | void> = (config, _props) => {
 
 const applyExtVars = (buildGradle: string, props:Map<string, string|boolean>) => {
 
-  const newSrc = [];
+  const newSrc = ["\text {"];
 
-  console.log('[ ' +  MODULE_NAME + '] applying ext vars to android/build.gradle', props);
+  console.log(
+    "[ " + MODULE_NAME + "] applying ext vars to android/build.gradle",
+    props
+  );
   for (let [key, value] of props) {
-    if (typeof(value) === 'boolean' || typeof(value) === 'number') {
-      newSrc.push(`\t${key} = ${value}`)
+    if (typeof value === "boolean" || typeof value === "number") {
+      newSrc.push(`\t\t${key} = ${value}`);
     } else {
-      newSrc.push(`\t${key} = "${value}"`)
+      newSrc.push(`\t\t${key} = "${value}"`);
     }
   }
 
+  newSrc.push("\t}");
   return mergeContents({
     tag: `${MODULE_NAME}`,
     src: buildGradle,
     newSrc: newSrc.join("\n"),
-    anchor: /ext(?:\s+)?\{/,
+    anchor: /buildscript\s*\{/,
     offset: 1,
     comment: "//",
   }).contents;
